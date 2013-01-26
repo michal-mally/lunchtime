@@ -4,6 +4,8 @@ class Order {
 
     Date orderDate
 
+    static hasMany = [orderItems: OrderItem]
+
     static constraints = {
         orderDate unique: true
     }
