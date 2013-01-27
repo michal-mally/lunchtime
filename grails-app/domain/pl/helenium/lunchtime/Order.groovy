@@ -4,13 +4,15 @@ class Order {
 
     Date orderDate
 
-    String restaurant
+    List<OrderItem> orderItems
 
     BigDecimal getOrderTotal() {
         orderItems*.price.sum()
     }
 
     static hasMany = [orderItems: OrderItem]
+
+    static belongsTo = [restaurant: Restaurant]
 
     static constraints = {
         orderDate unique: true

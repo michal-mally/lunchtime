@@ -4,7 +4,9 @@
   <title></title>
 </head>
 <body>
-    <h1>${order.orderDate}</h1>
+    <h1>Zamówienie nr ${order.id}</h1>
+    <p><strong>Data stworzenie zamówienie:</strong> <g:formatDate date="${order.orderDate}" /></p>
+    <p><strong>Restauracja:</strong> ${order.restaurant.name}</p>
     <table>
         <thead>
         <tr>
@@ -17,14 +19,14 @@
         <tbody>
         <g:each in="${order.orderItems}" var="orderItem">
             <tr>
-                <td>${orderItem.submitDate}</td>
+                <td><g:formatDate date="${orderItem.submitDate}" /></td>
                 <td>${orderItem.user}</td>
                 <td>${orderItem.meal}</td>
                 <td>${orderItem.price}</td>
             </tr>
         </g:each>
         <tr style="font-weight: bold;">
-            <td colspan="2" style="text-align: right;">Łącznie</td>
+            <td colspan="3" style="text-align: right;">Łącznie</td>
             <td>${order.orderTotal}</td>
         </tr>
         </tbody>

@@ -15,4 +15,8 @@ class OrderItem {
     static constraints = {
     }
 
+    static mapping = {
+        sort 'submitDate'
+    }
+
 }

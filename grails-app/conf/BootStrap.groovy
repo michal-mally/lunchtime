@@ -1,12 +1,12 @@
-import pl.helenium.lunchtime.Order
+import pl.helenium.lunchtime.Restaurant
 
 class BootStrap {
 
     def init = { servletContext ->
-        if (!Order.count()) {
-            new Order(orderDate: new Date(), restaurant: "Peperone").save(flush: true)
-        }
+        new Restaurant(name: 'Peperone').save(flush: true)
     }
+
     def destroy = {
     }
+
 }
