@@ -2,22 +2,26 @@ package pl.helenium.lunchtime
 
 class OrderItemController {
 
-        static allowedMethods = [save: "POST"]
+    static allowedMethods = [save: "POST"]
 
-        def create() {
-            [orderItem: new OrderItem(params)]
+    def create() {
+        [orderItem: new OrderItem(params)]
+    }
+
+    def save() {
+        def item = new OrderItem(params)
+        item.order = Order.first()
+        if (!item.save(flush: true)) {
+            render view: "create", model: [orderItem: item]
+            return
         }
 
-        def save() {
-            def item = new OrderItem(params)
-            item.order = Order.first()
-            if (!item.save(flush: true)) {
-                render view: "create", model: [orderItem: item]
-                return
-            }
+        redirect action: "list"
+    }
 
-            redirect action: "show", id: item.id
-        }
+    def list() {
+        [orderItems: OrderItem.list()]
+    }
 
 //    static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 //
