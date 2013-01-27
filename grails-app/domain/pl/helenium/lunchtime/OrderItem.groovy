@@ -4,13 +4,14 @@ class OrderItem {
 
     Date submitDate
 
-    String user
-
     String meal
 
     BigDecimal price
 
-    static belongsTo = [order: Order]
+    static belongsTo = [
+            order: Order,
+            user: User
+    ]
 
     static constraints = {
     }
