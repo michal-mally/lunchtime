@@ -21,6 +21,10 @@
                 <td>${orderItem.price}</td>
             </tr>
         </g:each>
+        <tr style="font-weight: bold;">
+            <td colspan="2" style="text-align: right;">Łącznie</td>
+            <td>${order.orderTotal}</td>
+        </tr>
         </tbody>
     </table>
     <g:link controller="orderItem" action="create" params="['order.id': order.id]">Dodaj pozycję</g:link>

@@ -6,6 +6,10 @@ class Order {
 
     String restaurant
 
+    BigDecimal getOrderTotal() {
+        orderItems*.price.sum()
+    }
+
     static hasMany = [orderItems: OrderItem]
 
     static constraints = {
