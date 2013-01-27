@@ -8,6 +8,7 @@
     <table>
         <thead>
         <tr>
+            <th>Data złożenia</th>
             <th>Zamawiający</th>
             <th>Danie</th>
             <th>Cena</th>
@@ -16,6 +17,7 @@
         <tbody>
         <g:each in="${order.orderItems}" var="orderItem">
             <tr>
+                <td>${orderItem.submitDate}</td>
                 <td>${orderItem.user}</td>
                 <td>${orderItem.meal}</td>
                 <td>${orderItem.price}</td>

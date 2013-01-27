@@ -10,6 +10,7 @@ class OrderItemController {
 
     def save() {
         def item = new OrderItem(params)
+        item.submitDate = new Date()
         if (!item.save(flush: true)) {
             render view: "create", model: [orderItem: item]
             return

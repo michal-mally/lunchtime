@@ -2,6 +2,8 @@ package pl.helenium.lunchtime
 
 class OrderItem {
 
+    Date submitDate
+
     String user
 
     String meal
