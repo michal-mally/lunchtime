@@ -23,6 +23,6 @@
         </g:each>
         </tbody>
     </table>
-    <a href="<g:createLink controller="orderItem" action="create" params="['order.id': order.id]" />">Dodaj zamówienie</a>
+    <g:link controller="orderItem" action="create" params="['order.id': order.id]">Dodaj pozycję</g:link>
 </body>
 </html>

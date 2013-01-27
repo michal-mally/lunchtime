@@ -10,7 +10,7 @@
         <label for="user">Zamawiający</label><g:textField name="user" value="${orderItem.user}" /><br />
         <label for="meal">Danie</label><g:textField name="meal" value="${orderItem.meal}" /><br />
         <label for="price">Cena</label><g:textField name="price" value="${orderItem.price}" /><br />
-        <g:submitButton name="Dodaj pozycję do zamówienia" />
+        <g:submitButton name="Dodaj pozycję" />
     </g:form>
 </body>
 </html>

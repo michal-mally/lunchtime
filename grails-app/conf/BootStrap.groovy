@@ -4,7 +4,7 @@ class BootStrap {
 
     def init = { servletContext ->
         if (!Order.count()) {
-            new Order(orderDate: new Date()).save(flush: true)
+            new Order(orderDate: new Date(), restaurant: "Peperone").save(flush: true)
         }
     }
     def destroy = {

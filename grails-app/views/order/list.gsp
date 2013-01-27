@@ -5,7 +5,8 @@
 </head>
 <body>
     <g:each in="${orders}" var="order">
-        <a href="<g:createLink action="show" id="${order.id}" />">${order.orderDate}</a><br />
+        <g:link action="show" id="${order.id}">${order.orderDate} / ${order.restaurant}</g:link><br />
     </g:each>
+    <g:link action="create">Dodaj zamówienie</g:link>
 </body>
 </html>

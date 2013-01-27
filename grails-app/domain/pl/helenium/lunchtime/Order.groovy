@@ -4,6 +4,8 @@ class Order {
 
     Date orderDate
 
+    String restaurant
+
     static hasMany = [orderItems: OrderItem]
 
     static constraints = {
