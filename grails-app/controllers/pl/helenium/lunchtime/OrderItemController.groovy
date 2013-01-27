@@ -10,17 +10,12 @@ class OrderItemController {
 
     def save() {
         def item = new OrderItem(params)
-        item.order = Order.first()
         if (!item.save(flush: true)) {
             render view: "create", model: [orderItem: item]
             return
         }
 
-        redirect action: "list"
-    }
-
-    def list() {
-        [orderItems: OrderItem.list()]
+        redirect controller: "order", action: "show", id: item.order.id
     }
 
 //    static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
