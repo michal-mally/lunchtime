@@ -1,5 +1,9 @@
 package pl.helenium.lunchtime
 
+import static pl.helenium.lunchtime.OrderState.CLOSED
+import static pl.helenium.lunchtime.OrderState.NEW
+import static pl.helenium.lunchtime.OrderState.SUBMITTED
+
 class OrderController {
 
     static allowedMethods = [save: "POST"]
@@ -35,6 +39,20 @@ class OrderController {
         }
 
         [order: order]
+    }
+
+    def proceed(Long id) {
+        def order = Order.get(id)
+        if (!order) {
+            redirect action: "list"
+            return
+        }
+
+        switch (order.orderState) {
+            case NEW: order.orderState = SUBMITTED; break;
+            case SUBMITTED: order.orderState = CLOSED; break;
+        }
+        redirect action: 'show', id: id
     }
 
 }

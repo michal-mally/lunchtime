@@ -4,6 +4,8 @@ class Order {
 
     Date orderDate
 
+    OrderState orderState = OrderState.NEW
+
     List<OrderItem> orderItems
 
     BigDecimal getOrderTotal() {

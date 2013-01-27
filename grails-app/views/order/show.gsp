@@ -1,12 +1,15 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="pl.helenium.lunchtime.OrderState" contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
   <title></title>
+    <g:javascript library="jquery" />
+    <r:layoutResources />
 </head>
 <body>
     <h1>Zamówienie nr ${order.id}</h1>
     <p><strong>Data stworzenie zamówienie:</strong> <g:formatDate date="${order.orderDate}" /></p>
     <p><strong>Restauracja:</strong> ${order.restaurant.name}</p>
+    <p><strong>Status:</strong> ${order.orderState}</p>
     <table>
         <thead>
         <tr>
@@ -31,6 +34,11 @@
         </tr>
         </tbody>
     </table>
-    <g:link controller="orderItem" action="create" params="['order.id': order.id]">Dodaj pozycję</g:link>
+    <g:if test="${order.orderState == OrderState.NEW}">
+        <g:link controller="orderItem" action="create" params="['order.id': order.id]">Dodaj pozycję</g:link><br />
+    </g:if>
+    <g:link action="proceed" id="${order.id}">Przejdź do kolejnego stanu</g:link><br />
+    <g:link action="list">Wróc do listy</g:link>
+<r:layoutResources />
 </body>
 </html>

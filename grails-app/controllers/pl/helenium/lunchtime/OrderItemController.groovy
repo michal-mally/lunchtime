@@ -10,6 +10,8 @@ class OrderItemController {
 
     def save() {
         def item = new OrderItem(params)
+        assert item.order.orderDate == OrderState.NEW
+
         item.submitDate = new Date()
         if (!item.save(flush: true)) {
             render view: "create", model: [orderItem: item]
