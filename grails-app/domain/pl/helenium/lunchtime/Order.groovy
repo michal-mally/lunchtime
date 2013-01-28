@@ -21,7 +21,7 @@ class Order {
     }
 
     static mapping = {
-        table 'order_'
+        table '`order`'
     }
 
 }

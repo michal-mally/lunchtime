@@ -10,7 +10,7 @@ class OrderItemController {
 
     def save() {
         def item = new OrderItem(params)
-        assert item.order.orderDate == OrderState.NEW
+        assert item.order.orderState == OrderState.NEW
 
         item.submitDate = new Date()
         if (!item.save(flush: true)) {
