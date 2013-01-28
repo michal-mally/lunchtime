@@ -3,7 +3,6 @@
 <head>
   <title></title>
     <g:javascript library="jquery" />
-    <r:layoutResources />
 </head>
 <body>
     <h1>Zamówienie nr ${order.id}</h1>
@@ -39,6 +38,5 @@
     </g:if>
     <g:link action="proceed" id="${order.id}">Przejdź do kolejnego stanu</g:link><br />
     <g:link action="list">Wróc do listy</g:link>
-<r:layoutResources />
 </body>
 </html>
