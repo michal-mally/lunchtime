@@ -22,7 +22,7 @@
                     <td><g:link action="show" id="${order.id}"><g:formatDate date="${order.orderDate}" /></g:link></td>
                     <td><g:link controller="restaurant" action="show" id="${order.restaurant.id}">${order.restaurant.name}</g:link></td>
                     <td>${order.orderTotal}</td>
-                    <td>${order.orderState}</td>
+                    <td><g:message code="OrderState.${order.orderState}" /></td>
                 </tr>
             </g:each>
         </tbody>

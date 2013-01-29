@@ -26,6 +26,7 @@ class OrderItemController {
 
     def delete(Long id) {
         def item = OrderItem.get(id)
+        assert item.order.orderState == OrderState.NEW
         item.delete()
 
         redirect controller: "order", action: "show", id: item.order.id

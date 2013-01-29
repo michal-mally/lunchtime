@@ -7,7 +7,7 @@
 <body>
     <p><strong>Data zamówienie:</strong> <g:formatDate date="${order.orderDate}" /></p>
     <p><strong>Restauracja:</strong> <g:link controller="restaurant" id="${order.restaurant.id}">${order.restaurant.name}</g:link></p>
-    <p><strong>Status:</strong> ${order.orderState}</p>
+    <p><strong>Status:</strong> <g:message code="OrderState.${order.orderState}" /></p>
     <g:if test="${order.orderItems}">
         <table>
             <thead>
