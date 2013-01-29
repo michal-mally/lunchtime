@@ -21,7 +21,7 @@
             <g:each in="${orders}" var="order">
                 <tr>
                     <td><g:link action="show" id="${order.id}"><g:formatDate date="${order.orderDate}" /></g:link></td>
-                    <td><sec:username/></td>
+                    <td>${order.organizer.username}</td>
                     <td><g:link controller="restaurant" action="show" id="${order.restaurant.id}">${order.restaurant.name}</g:link></td>
                     <td>${order.orderTotal}</td>
                     <td><g:message code="OrderState.${order.orderState}" /></td>

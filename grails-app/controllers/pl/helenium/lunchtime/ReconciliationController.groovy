@@ -12,7 +12,11 @@ class ReconciliationController {
     }
 
     def list() {
-        [reconciliation: Reconciliation.findByUser(springSecurityService.currentUser as User)]
+        def user = springSecurityService.currentUser as User
+        [
+                reconciliation: Reconciliation.findByUser(user),
+                transfers: Transfer.findAllByFromOrTo(user, user, [sort: 'transferDate', order: 'desc', max: 10])
+        ]
     }
 
 }

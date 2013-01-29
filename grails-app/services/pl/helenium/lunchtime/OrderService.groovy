@@ -22,6 +22,8 @@ class OrderService {
         ).each {
             transfer from: order.organizer, to: it.user,         amount: it.price
             transfer from: it.user,         to: order.organizer, amount: -it.price
+
+            new Transfer(from: order.organizer, to: it.user, description: it.meal, amount: it.price).save(flush: true)
         }
     }
 

@@ -22,5 +22,27 @@
             </tbody>
         </table>
     </g:if>
+    <table>
+        <thead>
+        <tr>
+            <th>Data</th>
+            <th>Od</th>
+            <th>Do</th>
+            <th>Opis</th>
+            <th>Kwota</th>
+        </tr>
+        </thead>
+        <tbody>
+        <g:each in="${transfers}" var="transfer">
+            <tr>
+                <td><g:formatDate date="${transfer.transferDate}" /></td>
+                <td>${transfer.from.username}</td>
+                <td>${transfer.to.username}</td>
+                <td>${transfer.description}</td>
+                <td>${transfer.amount}</td>
+            </tr>
+        </g:each>
+        </tbody>
+    </table>
 </body>
 </html>
