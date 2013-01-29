@@ -1,7 +1,7 @@
 <html>
 <head>
-	<title><g:message code="springSecurity.login.title"/></title>
-</head>                      s
+	<title>Logowanie</title>
+</head>
 <body>
     <g:if test="${flash.message}">
         <div class="error">${flash.message}</div>
@@ -20,7 +20,7 @@
                 <label for='remember_me'>pamiętaj mnie</label>
                 <input type='checkbox' name='${rememberMeParameter}' id='remember_me' <g:if test='${hasCookie}'>checked='checked'</g:if>/>
             </div>
-            <a href="#" onclick="$(this).closest('form').submit(); return false;">${message(code: "springSecurity.login.button")}</a>
+            <a href="#" class="button" onclick="$(this).closest('form').submit(); return false;">${message(code: "springSecurity.login.button")}</a>
         </fieldset>
     </form>
 </body>

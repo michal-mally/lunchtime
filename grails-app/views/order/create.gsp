@@ -8,7 +8,7 @@
     <g:form action="save">
         <fieldset>
             <div><label for="restaurant">Restauracja</label><g:select name="restaurant.id" from="${Restaurant.list(sort: 'name')}" optionKey="id" optionValue="name" /></div>
-            <a href="#" onclick="$(this).closest('form').submit(); return false;">Dodaj zamówienie</a>
+            <a href="#" class="button" onclick="$(this).closest('form').submit(); return false;">Dodaj zamówienie</a>
         </fieldset>
     </g:form>
 </body>

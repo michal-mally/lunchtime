@@ -11,18 +11,20 @@
         <div class="topBar">
             <h1><em>LAUNCH TIME ::</em> <g:layoutTitle /></h1>
             <sec:ifLoggedIn>
-                <g:link controller="logout">Wyloguj</g:link>
+                <g:link controller="logout" class="button">Wyloguj</g:link>
             </sec:ifLoggedIn>
             <div style="clear: both"></div>
         </div>
         <sec:ifLoggedIn>
             <div class="menu">
-                    <g:link controller="restaurant">Restauracje</g:link>
-                    <g:link controller="order">Zamówienia</g:link>
+                    <g:link controller="restaurant" class="button">Restauracje</g:link>
+                    <g:link controller="order" class="button">Zamówienia</g:link>
             </div>
         </sec:ifLoggedIn>
         <div class="content">
-            <g:layoutBody/>
+            <div class="info">
+                <g:layoutBody/>
+            </div>
         </div>
         <r:layoutResources />
     </body>

@@ -1,10 +1,10 @@
 <head>
 <meta name='layout' content='lt_main' />
-<title><g:message code="springSecurity.denied.title" /></title>
+<title>Dostęp zabroniony</title>
 </head>
 
 <body>
 <div class='body'>
-	<div class='error'><g:message code="springSecurity.denied.message" /></div>
+	<div class='error'>Wybacz, ale moje sumienie nie pozwala mi pokazać Ci tej strony ;)</div>
 </div>
 </body>
