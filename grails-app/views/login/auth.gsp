@@ -6,7 +6,7 @@
     <g:if test="${flash.message}">
         <div class="error">${flash.message}</div>
     </g:if>
-    <form action='${postUrl}' method='POST' id='loginForm' autocomplete='off'>
+    <form action='${postUrl}' method='POST' class="login" id='loginForm' autocomplete='off'>
         <fieldset>
             <div>
                 <label for='username'>login</label>

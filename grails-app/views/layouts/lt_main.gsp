@@ -10,13 +10,17 @@
     <body>
         <div class="topBar">
             <h1><em>LAUNCH TIME ::</em> <g:layoutTitle /></h1>
-            <g:link controller="logout">Wyloguj</g:link>
+            <sec:ifLoggedIn>
+                <g:link controller="logout">Wyloguj</g:link>
+            </sec:ifLoggedIn>
             <div style="clear: both"></div>
         </div>
-        <div class="menu">
-            <g:link controller="restaurant">Restauracje</g:link>
-            <g:link controller="order">Zamówienia</g:link>
-        </div>
+        <sec:ifLoggedIn>
+            <div class="menu">
+                    <g:link controller="restaurant">Restauracje</g:link>
+                    <g:link controller="order">Zamówienia</g:link>
+            </div>
+        </sec:ifLoggedIn>
         <div class="content">
             <g:layoutBody/>
         </div>
