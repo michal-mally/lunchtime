@@ -1,9 +1,10 @@
 package pl.helenium.lunchtime
-
 import grails.plugins.springsecurity.Secured
 
 @Secured("ROLE_USER")
 class OrderItemController {
+
+    def springSecurityService
 
     static allowedMethods = [save: "POST"]
 
@@ -16,6 +17,7 @@ class OrderItemController {
         assert item.order.orderState == OrderState.NEW
 
         item.submitDate = new Date()
+        item.submitter = springSecurityService.currentUser as User
         if (!item.save(flush: true)) {
             render view: "create", model: [orderItem: item]
             return

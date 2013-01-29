@@ -23,7 +23,12 @@
                 <g:each in="${order.orderItems}" var="orderItem">
                     <tr>
                         <td><g:formatDate date="${orderItem.submitDate}" /></td>
-                        <td><g:link controller="user" action="show" id="${orderItem.user.id}">${orderItem.user.username}</g:link></td>
+                        <td>
+                            <g:link controller="user" action="show" id="${orderItem.user.id}">${orderItem.user.username}</g:link>
+                            <g:if test="${orderItem.user.id != orderItem.submitter.id}">
+                                (przez <g:link controller="user" action="show" id="${orderItem.submitter.id}">${orderItem.submitter.username}</g:link>)
+                            </g:if>
+                        </td>
                         <td>${orderItem.meal}</td>
                         <td>${orderItem.price}</td>
                         <td>

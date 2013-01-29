@@ -10,7 +10,8 @@ class OrderItem {
 
     static belongsTo = [
             order: Order,
-            user: User
+            user: User,
+            submitter: User
     ]
 
     static constraints = {
