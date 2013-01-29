@@ -16,7 +16,7 @@ class OrderController {
     }
 
     def list() {
-        [orders: Order.list()]
+        [orders: Order.list(sort: 'orderDate', order: 'desc')]
     }
 
     def create() {

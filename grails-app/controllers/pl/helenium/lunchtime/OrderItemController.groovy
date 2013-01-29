@@ -24,6 +24,13 @@ class OrderItemController {
         redirect controller: "order", action: "show", id: item.order.id
     }
 
+    def delete(Long id) {
+        def item = OrderItem.get(id)
+        item.delete()
+
+        redirect controller: "order", action: "show", id: item.order.id
+    }
+
 //    static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 //
 //    def index() {

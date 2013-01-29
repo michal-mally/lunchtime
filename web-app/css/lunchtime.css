@@ -108,6 +108,10 @@ input, select {
     border-bottom: 1px dashed #000000;
 }
 
+input:focus, select:focus {
+    color: #000000;
+}
+
 fieldset {
     border: none;
 }

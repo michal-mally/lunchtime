@@ -2,10 +2,12 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-  <title></title>
+  <title>Dodawanie pozycji</title>
 </head>
 <body>
-    <g:renderErrors bean="${orderItem}" />
+    <g:hasErrors bean="${orderItem}">
+        <div class="error"><g:renderErrors bean="${orderItem}" /></div>
+    </g:hasErrors>
     <g:form action="save">
         <fieldset>
             <g:hiddenField name="order.id" value="${orderItem.order.id}" />
@@ -21,7 +23,7 @@
                 <label for="price">Cena</label>
                 <g:textField name="price" value="${orderItem.price}" /><br />
             </div>
-            <a href="#" onclick="$(this).closest('form').submit(); return false;">Dodaj pozycję</a>
+            <a href="#" class="button" onclick="$(this).closest('form').submit(); return false;">Dodaj pozycję</a>
         </fieldset>
     </g:form>
 </body>
