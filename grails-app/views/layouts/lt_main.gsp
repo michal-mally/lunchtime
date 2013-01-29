@@ -19,6 +19,7 @@
             <div class="menu">
                     <g:link controller="restaurant" class="button">Restauracje</g:link>
                     <g:link controller="order" class="button">Zamówienia</g:link>
+                    <g:link controller="reconciliation" class="button">Rozliczenia</g:link>
             </div>
         </sec:ifLoggedIn>
         <div class="content">

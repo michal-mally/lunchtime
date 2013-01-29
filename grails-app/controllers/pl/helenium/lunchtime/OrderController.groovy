@@ -1,15 +1,14 @@
 package pl.helenium.lunchtime
-
 import grails.plugins.springsecurity.Secured
-
-import static pl.helenium.lunchtime.OrderState.CLOSED
-import static pl.helenium.lunchtime.OrderState.NEW
-import static pl.helenium.lunchtime.OrderState.SUBMITTED
 
 @Secured("ROLE_USER")
 class OrderController {
 
+    def springSecurityService
+
     static allowedMethods = [save: "POST"]
+
+    def orderService
 
     def index() {
         redirect action: "list"
@@ -25,6 +24,7 @@ class OrderController {
 
     def save() {
         def order = new Order(params)
+        order.organizer = springSecurityService.currentUser as User
         order.orderDate = new Date()
         if (!order.save(flush: true)) {
             render view: "create", model: [order: order]
@@ -51,10 +51,7 @@ class OrderController {
             return
         }
 
-        switch (order.orderState) {
-            case NEW: order.orderState = SUBMITTED; break;
-            case SUBMITTED: order.orderState = CLOSED; break;
-        }
+        orderService.proceed(order)
         redirect action: 'show', id: id
     }
 

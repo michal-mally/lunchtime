@@ -2,6 +2,8 @@ package pl.helenium.lunchtime
 
 class Order {
 
+    User organizer
+
     Date orderDate
 
     OrderState orderState = OrderState.NEW
@@ -14,7 +16,10 @@ class Order {
 
     static hasMany = [orderItems: OrderItem]
 
-    static belongsTo = [restaurant: Restaurant]
+    static belongsTo = [
+            organizer: User,
+            restaurant: Restaurant
+    ]
 
     static constraints = {
         orderDate unique: true
