@@ -1,5 +1,8 @@
 package pl.helenium.lunchtime
 
+import grails.plugins.springsecurity.Secured
+
+@Secured("ROLE_USER")
 class OrderItemController {
 
     static allowedMethods = [save: "POST"]

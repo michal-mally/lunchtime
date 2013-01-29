@@ -1,9 +1,12 @@
 package pl.helenium.lunchtime
 
+import grails.plugins.springsecurity.Secured
+
 import static pl.helenium.lunchtime.OrderState.CLOSED
 import static pl.helenium.lunchtime.OrderState.NEW
 import static pl.helenium.lunchtime.OrderState.SUBMITTED
 
+@Secured("ROLE_USER")
 class OrderController {
 
     static allowedMethods = [save: "POST"]

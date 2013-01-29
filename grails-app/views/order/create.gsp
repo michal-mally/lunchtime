@@ -6,8 +6,10 @@
 <body>
     <g:renderErrors bean="${order}" />
     <g:form action="save">
-        <label for="restaurant">Restauracja</label><g:select name="restaurant.id" from="${Restaurant.list(sort: 'name')}" optionKey="id" optionValue="name" />
-        <g:submitButton name="Dodaj zamówienie" />
+        <fieldset>
+            <div><label for="restaurant">Restauracja</label><g:select name="restaurant.id" from="${Restaurant.list(sort: 'name')}" optionKey="id" optionValue="name" /></div>
+            <a href="#" onclick="$(this).closest('form').submit(); return false;">Dodaj zamówienie</a>
+        </fieldset>
     </g:form>
 </body>
 </html>

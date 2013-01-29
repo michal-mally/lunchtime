@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-  <title></title>
+  <title>Lista zamówień</title>
 </head>
 <body>
     <g:each in="${orders}" var="order">
