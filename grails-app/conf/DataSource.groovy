@@ -25,6 +25,7 @@ environments {
     }
     production {
         dataSource {
+            driverClassName = "com.mysql.jdbc.Driver"
             dbCreate = "update"
             url = "jdbc:h2:prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
             pooled = true
